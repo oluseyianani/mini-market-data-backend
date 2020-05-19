@@ -17,11 +17,11 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
-      category: {
+      foodCategory: {
         required: true,
         allowNull: false,
         unique: false,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       long: {
         type: Sequelize.GEOMETRY
