@@ -13,11 +13,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'Market',
+          model: 'Markets',
           key: 'id',
           as: 'marketId'
         }
-
       },
       images: {
         type: Sequelize.BLOB
