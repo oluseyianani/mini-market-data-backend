@@ -18,8 +18,8 @@ module.exports = {
           as: 'marketId'
         }
       },
-      images: {
-        type: Sequelize.BLOB
+      image: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

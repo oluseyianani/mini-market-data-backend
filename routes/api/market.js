@@ -13,10 +13,12 @@ const {
 } = MarketController;
 
 const {
-  token
+  token,
+  createMarket,
+  authorizeAdmin
 } = Validators;
 
-router.post('/market/create', token, create);
+router.post('/market/create', authorizeAdmin, create);
 router.put('/market/update:id', token, update);
 router.get('/market/:id', token, fetchOne);
 router.get('/market', token, fetchMany);
