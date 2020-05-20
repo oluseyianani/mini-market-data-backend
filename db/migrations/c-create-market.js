@@ -15,19 +15,13 @@ module.exports = {
         type: Sequelize.TEXT
       },
       address: {
-        type: Sequelize.STRING
+        type: Sequelize.GEOMETRY
       },
       foodCategory: {
         required: true,
         allowNull: false,
         unique: false,
         type: Sequelize.STRING,
-      },
-      long: {
-        type: Sequelize.GEOMETRY
-      },
-      lat: {
-        type: Sequelize.GEOMETRY
       },
       createdAt: {
         allowNull: false,

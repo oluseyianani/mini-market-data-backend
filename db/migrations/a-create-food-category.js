@@ -3,11 +3,11 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('FoodCategories', {
       id: {
+        primaryKey: true,
         type: Sequelize.INTEGER,
         autoIncrement: true,
       },
       name: {
-        primaryKey: true,
         type: Sequelize.STRING,
         unique: true,
         allowNull: false,

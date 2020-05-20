@@ -1,5 +1,6 @@
 const Models = require('../db/models');
 const Helpers = require('../helpers/index');
+const MarketWorker = require('../workers/MarketWorker');
 
 
 const { Market } = Models;
@@ -16,10 +17,25 @@ class MarketController {
      * @returns { object } Json
      */
     static async create(req, res) {
-        // token middleware to chaeck valid token
-        // role midleware to validate who's accesible
-        // get all the data from request
-        //insert them into the database and return
+      try {
+        const {
+            images
+        } = req.body
+
+        const market = await Market.create(req.body);
+        console.log(market.dataValues.id);
+        if (images) {
+            await MarketWorker.uploadMarketImages(images, market.dataValues.id);
+        }
+
+        return HttpResponseHelper.goodResponse(res, 201, 'Market created', market.dataValues);
+      } catch (error) {
+        return res.status(500).json({
+            success: false,
+            error: error.message
+        });
+      }
+       
     }
   
   
